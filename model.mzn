@@ -27,8 +27,8 @@ array[rows] of var cols: Q;
 constraint all_different(Q);
 
 % Queens cannot touch on the diagonal
-constraint forall(i in 1..n, j in 1..n where j == i + 1) (Q[i] + 1 != Q[j]);
-constraint forall(i in 1..n, j in 1..n where j == i + 1) (Q[i] - 1 != Q[j]);
+constraint forall(i in 1..n, j in 1..n where j == i + 1)
+  ( Q[i] + 1 != Q[j] /\ Q[i] - 1 != Q[j] );
 
 % For each color, there must be exactly one queen
 constraint forall(c in color)
